@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bloggit2</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div id="menu_bar">
+    <div class = "menu_options" id="logo"><%= link_to "Blogg.it", "/"%></div>
+    <div class = "menu_options" id="menu_users"><%= link_to "Users", users_path %></div>
+    <div class = "menu_options" id="menu_signup"><%= link_to "Signup!", new_user_path %></div>
+  </div>
+<%= yield %>
+
+</body>
+</html>
