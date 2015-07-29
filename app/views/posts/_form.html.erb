@@ -1,0 +1,12 @@
+<%= form_for @post do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <%= f.label :post_content %>
+  <%= f.text_field :post_content %>
+  <%= f.select :user_id do %>
+    <% @users.each do |user| -%>
+      <%= content_tag(:option, user.username, value: user.id) %>
+    <% end %>
+  <% end %>
+  <%= f.submit %>
+<% end %>

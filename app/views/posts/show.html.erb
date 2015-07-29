@@ -1,0 +1,17 @@
+<h1><%=@post.title%></h2>
+<%= link_to "(edit)", edit_post_path(@post) %>
+<h3><%=@post.user.username%></h3>
+<h3><%=@post.created_at.strftime("%b %e, %Y - %l:%M%p")%></h3>
+<p><%=@post.post_content%></p>
+<% @post.comments.each do |comment| %>
+  <p>
+    <%=User.find(comment.user_id).username%> wrote at <%=comment.created_at.strftime("%l:%M%p")%>: <%=comment.comment_content%>
+    <%= form_for comment, method: :delete do |f| %>
+      <%= f.submit "Delete Comment!" %>
+    <% end %>
+  </p>
+<% end %>
+<%= link_to "(Add Comment)", new_comment_path %>
+<%= form_for @post, method: :delete do |f| %>
+  <%= f.submit "Delete Post!" %>
+<% end %>

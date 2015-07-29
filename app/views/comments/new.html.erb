@@ -1,0 +1,15 @@
+<%= form_for @comment do |f| %>
+  <%= f.label :comment_content %>
+  <%= f.text_field :comment_content %>
+  <%= f.select :user_id do %>
+    <% @users.each do |user| -%>
+      <%= content_tag(:option, user.username, value: user.id) %>
+    <% end %>
+  <% end %>
+  <%= f.select :post_id do %>
+    <% @posts.each do |post| -%>
+      <%= content_tag(:option, post.title, value: post.id) %>
+    <% end %>
+  <% end %>
+  <%= f.submit %>
+<% end %>

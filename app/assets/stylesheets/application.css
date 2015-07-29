@@ -28,3 +28,6 @@ body {
 #menu_bar {
   width: 100%;
 }
+h1 {
+  display: inline-block;
+}
