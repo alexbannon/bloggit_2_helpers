@@ -26,9 +26,11 @@ class UsersController < ApplicationController
     @user.destroy
     redirect_to users_path
   end
+  def showposts
+    @user = User.find(params[:id])
+  end
 
 
-  
   private
   def user_params
     params.require(:user).permit(:username, :email, :age)
